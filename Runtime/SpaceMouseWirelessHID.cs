@@ -53,8 +53,8 @@ namespace SpaceNavigatorDriver
                 matches: new InputDeviceMatcher()
                     .WithInterface("HID")
                     .WithManufacturer("3Dconnexion.*")
-                    .WithCapability("productId", 0xC62E));
-            DebugLog("SpaceMouseWirelessHID : Register layout for SpaceMouse Wireless productId:0xC62E");
+                    .WithCapability("productId", 0xC63A));
+            DebugLog("SpaceMouseWirelessHID : Register layout for SpaceMouse Wireless productId:0xC63A");
         }
 
         // When one of our custom devices is removed, we want to make sure that if

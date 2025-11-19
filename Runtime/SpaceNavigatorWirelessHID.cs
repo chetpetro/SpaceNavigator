@@ -40,10 +40,16 @@ namespace SpaceNavigatorDriver
         public ReportFormat3 report3;
     }
 
-    [InitializeOnLoad] // Make sure static constructor is called during startup.
     [InputControlLayout(stateType = typeof(SpaceNavigatorWirelessHIDState))]
     public class SpaceNavigatorWirelessHID : SpaceNavigatorHID
     {
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void Register()
+        {
+            // Manually call the static constructor so layout registration happens
+            System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(SpaceMouseWirelessHID).TypeHandle);
+        }
+
         static SpaceNavigatorWirelessHID()
         {
             // Register a layout with product ID, so this layout will have a higher score than SpaceNavigatorHID

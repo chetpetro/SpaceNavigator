@@ -40,12 +40,13 @@ namespace SpaceNavigatorDriver
         public ReportFormat3 report3;
     }
 
-#if UNITY_EDITOR
     [InitializeOnLoad] // Make sure static constructor is called during startup.
-#endif
     [InputControlLayout(stateType = typeof(SpaceNavigatorWirelessHIDState))]
     public class SpaceNavigatorWirelessHID : SpaceNavigatorHID
     {
+        [RuntimeInitializeOnLoadMethod]
+        private static void ForceLoad() { }
+
         static SpaceNavigatorWirelessHID()
         {
             // Register a layout with product ID, so this layout will have a higher score than SpaceNavigatorHID

@@ -71,6 +71,7 @@ namespace SpaceNavigatorDriver
             // If no layout with a matching product ID is found, this will be the default. 
             InputSystem.RegisterLayout<SpaceNavigatorHID>(
                 matches: new InputDeviceMatcher()
+                    .WithInterface("HID")
                     .WithManufacturer("3Dconnexion.*")
             );
 #if UNITY_EDITOR

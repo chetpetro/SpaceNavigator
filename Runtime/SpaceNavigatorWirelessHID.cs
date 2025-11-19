@@ -52,7 +52,9 @@ namespace SpaceNavigatorDriver
             InputSystem.RegisterLayout<SpaceNavigatorWirelessHID>(
                 matches: new InputDeviceMatcher()
                     .WithInterface("HID")
-                    .WithManufacturer("3Dconnexion.*"));
+                    .WithManufacturer("3Dconnexion.*")
+                    .WithCapability("productId", 0xC652));
+            DebugLog("SpaceNavigatorWirelessHID : Register layout for SpaceNavigator Wireless productId:0xC652");
         }
 
         // When one of our custom devices is removed, we want to make sure that if
